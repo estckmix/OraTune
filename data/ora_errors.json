@@ -1,0 +1,1577 @@
+{
+  "ORA-00001": {
+    "message": "unique constraint (%s.%s) violated",
+    "cause": "An UPDATE or INSERT statement attempted to insert a duplicate key. For Trusted Oracle configured in DBMS MAC mode, you may see this message if a duplicate entry exists at a different level.",
+    "action": "Either remove the unique restriction or do not insert the key.",
+    "severity": "HIGH",
+    "category": "Constraints"
+  },
+  "ORA-00017": {
+    "message": "session requested to set trace event",
+    "cause": "Another session requested that this session set a trace event.",
+    "action": "This is an internal message. Contact Oracle Support if it occurs frequently.",
+    "severity": "LOW",
+    "category": "Session"
+  },
+  "ORA-00018": {
+    "message": "maximum number of sessions exceeded",
+    "cause": "All session state objects are in use.",
+    "action": "Increase the value of the SESSIONS initialization parameter.",
+    "severity": "CRITICAL",
+    "category": "Session"
+  },
+  "ORA-00019": {
+    "message": "maximum number of session licenses exceeded",
+    "cause": "All licenses are in use.",
+    "action": "Increase the value of the LICENSE_MAX_SESSIONS initialization parameter.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-00020": {
+    "message": "maximum number of processes (%s) exceeded",
+    "cause": "All process state objects are in use.",
+    "action": "Increase the value of the PROCESSES initialization parameter.",
+    "severity": "CRITICAL",
+    "category": "Session"
+  },
+  "ORA-00028": {
+    "message": "your session has been killed",
+    "cause": "A privileged user has killed your session.",
+    "action": "Login again if necessary.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-00031": {
+    "message": "session marked for kill",
+    "cause": "The session specified in an ALTER SYSTEM KILL SESSION command cannot be killed immediately (it is rolling back or blocked on a network operation), and has been marked to be killed when the rollback is complete.",
+    "action": "Wait for the session to complete its rollback.",
+    "severity": "MEDIUM",
+    "category": "Session"
+  },
+  "ORA-00054": {
+    "message": "resource busy and acquire with NOWAIT specified or timeout expired",
+    "cause": "The resource is being held by another user, and NOWAIT was specified or the timeout expired.",
+    "action": "Retry the command. If the error persists, investigate blocking sessions using V$LOCK and V$SESSION.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-00055": {
+    "message": "maximum number of DML locks exceeded",
+    "cause": "The number of DML locks required exceeds the number allowed by the DML_LOCKS parameter.",
+    "action": "Increase the value of DML_LOCKS or reduce the number of tables locked per transaction.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-00056": {
+    "message": "DDL lock on object '%s.%s' is already held",
+    "cause": "A DDL lock on the object is already held by another session.",
+    "action": "Wait for the DDL lock to be released or identify and kill the blocking session.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-00060": {
+    "message": "deadlock detected while waiting for resource",
+    "cause": "Two or more processes are waiting for resources locked by each other, resulting in a deadlock.",
+    "action": "Retry the transaction. Review transaction logic to acquire locks in consistent order. Check the trace file written to the user dump destination.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-00100": {
+    "message": "no data found",
+    "cause": "A SELECT INTO statement returned no rows, or your program referenced an uninitialized row in a table.",
+    "action": "Check that the correct WHERE clause is specified. Use explicit cursor loops rather than SELECT INTO when zero rows are possible.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00200": {
+    "message": "control file could not be created",
+    "cause": "It was not possible to create the control file.",
+    "action": "Check that the device is online. Check the alert log for additional error information.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00201": {
+    "message": "control file version %s incompatible with ORACLE version %s",
+    "cause": "An attempt was made to access a control file that was created by a different (and incompatible) version of Oracle.",
+    "action": "Either use a control file compatible with this version of Oracle, or use the version of Oracle that is compatible with this control file.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00205": {
+    "message": "error in identifying control file, check alert log for more info",
+    "cause": "The system could not find a control file of the specified name and size.",
+    "action": "Check that all control files are online and that they are the same files that the system was last started with. Check the alert log for more information.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00210": {
+    "message": "cannot open the specified control file",
+    "cause": "It was not possible to open the control file.",
+    "action": "Check that the device is online, and that the control file specified exists.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00257": {
+    "message": "archiver error. Connect internal only, until freed",
+    "cause": "The archiver process received an error while trying to archive a redo log. The archive destination device may be out of space.",
+    "action": "Check the alert log for details. Free up space on the archive log destination or add more destination space. Connect as SYSDBA to investigate.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00312": {
+    "message": "online log %s thread %s: '%s'",
+    "cause": "This message reports the filename for details of another error.",
+    "action": "See the associated errors for a description of the problem.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00313": {
+    "message": "open failed for members of log group %s of thread %s",
+    "cause": "The online log cannot be opened.",
+    "action": "See the accompanying errors. The log may need to be archived or cleared.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00333": {
+    "message": "redo log read error block %s count %s",
+    "cause": "An I/O error was encountered on a redo log.",
+    "action": "Make the redo log available. Check for OS-level I/O errors.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00338": {
+    "message": "log %s of thread %s is more recent than control file",
+    "cause": "The log sequence number in the control file is lower than the one in the log file.",
+    "action": "Restore a current copy of the control file or perform database recovery.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00341": {
+    "message": "log %s of thread %s, wrong log # %s in header",
+    "cause": "The header of the redo log file has a different log sequence number than what is stored in the control file.",
+    "action": "Restore from backup. Contact Oracle Support.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00361": {
+    "message": "cannot remove last log member %s for group %s",
+    "cause": "An attempt was made to drop the last member of an online redo log group.",
+    "action": "Each log group must have at least one member. Add a new member before removing this one.",
+    "severity": "MEDIUM",
+    "category": "Storage"
+  },
+  "ORA-00376": {
+    "message": "file %s cannot be read at this time",
+    "cause": "An attempt was made to read from a file that is not accessible.",
+    "action": "Bring the file online before reading it.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-00439": {
+    "message": "feature not enabled: %s",
+    "cause": "The feature is not enabled for this Oracle installation.",
+    "action": "Do not use this feature or obtain the appropriate Oracle license that includes it.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-00494": {
+    "message": "enqueue [%s] held for too long (over %s seconds) by inst %s, osid %s",
+    "cause": "A process has held an enqueue for an unusual amount of time, probably due to a hung process.",
+    "action": "Check the process identified. Kill it if it is hung.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-00600": {
+    "message": "internal error code, arguments: [%s], [%s], [%s], [%s], [%s], [%s], [%s], [%s]",
+    "cause": "This is a generic internal error number that means a program error was encountered. This indicates a bug in Oracle.",
+    "action": "Report the error to Oracle Support with the full ORA-00600 arguments and the trace file. Do not attempt to diagnose internally.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-00604": {
+    "message": "error occurred at recursive SQL level %s",
+    "cause": "An error occurred while processing a recursive SQL statement (a statement applying to internal dictionary tables).",
+    "action": "If the situation described in the next error on the stack can be corrected, do so. Otherwise contact Oracle Support.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-00607": {
+    "message": "Internal error occurred while making a change to a data block",
+    "cause": "An internal error occurred while changing a data block.",
+    "action": "Report this error to Oracle Support along with the trace file.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-00700": {
+    "message": "soft internal error, arguments: [%s], [%s], [%s], [%s], [%s]",
+    "cause": "An internal error for Oracle Support only.",
+    "action": "Contact Oracle Support with the trace file.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-00704": {
+    "message": "bootstrap process failure",
+    "cause": "An error occurred during bootstrap of the database.",
+    "action": "Examine the other messages on the stack to diagnose the problem.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-00900": {
+    "message": "invalid SQL statement",
+    "cause": "The SQL statement entered is not a valid SQL statement.",
+    "action": "Enter a valid SQL statement.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00901": {
+    "message": "invalid CREATE command",
+    "cause": "The CREATE command was not followed by a recognized keyword.",
+    "action": "Check the Oracle documentation for the correct CREATE statement syntax.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00903": {
+    "message": "invalid table name",
+    "cause": "An invalid table name was given in the SQL statement.",
+    "action": "Check the table name for spelling errors and ensure it follows Oracle naming conventions.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00904": {
+    "message": "\"%s\": invalid identifier",
+    "cause": "An invalid column name was used. The column does not exist or the name is misspelled.",
+    "action": "Check the column name spelling. Use DESC table_name or SELECT * FROM ALL_TAB_COLUMNS to confirm the column name.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-00905": {
+    "message": "missing keyword",
+    "cause": "A required keyword is missing from a SQL statement.",
+    "action": "Check the SQL syntax. A keyword like SELECT, FROM, WHERE, or INTO may be missing.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00907": {
+    "message": "missing right parenthesis",
+    "cause": "A left parenthesis was not matched by a right parenthesis in a SQL statement.",
+    "action": "Check the SQL statement for unmatched parentheses.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00911": {
+    "message": "invalid character",
+    "cause": "A special character was found that is not permitted in identifiers.",
+    "action": "Remove the special character or quote the identifier.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00917": {
+    "message": "missing comma",
+    "cause": "A comma was expected in a SQL statement but was not found.",
+    "action": "Check the SQL statement for a missing comma in a column list or VALUES clause.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00918": {
+    "message": "column ambiguously defined",
+    "cause": "A column name used in a join exists in more than one table.",
+    "action": "Prefix the column name with the table alias: table_alias.column_name.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00920": {
+    "message": "invalid relational operator",
+    "cause": "An invalid relational operator was used in a WHERE clause.",
+    "action": "Use valid relational operators: =, !=, <>, >, <, >=, <=, LIKE, IN, BETWEEN, IS NULL.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00921": {
+    "message": "unexpected end of SQL command",
+    "cause": "The SQL statement ended unexpectedly.",
+    "action": "Check the SQL statement for completeness. A clause or expression may be missing at the end.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00923": {
+    "message": "FROM keyword not found where expected",
+    "cause": "The FROM keyword was missing or misspelled in a SELECT statement.",
+    "action": "Correct the SELECT statement to include the FROM keyword before the table name.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00924": {
+    "message": "missing BY keyword",
+    "cause": "The keyword BY is missing in an ORDER BY or GROUP BY clause.",
+    "action": "Check the ORDER BY or GROUP BY clause for the missing BY keyword.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00926": {
+    "message": "missing VALUES keyword",
+    "cause": "An INSERT statement is missing the VALUES keyword.",
+    "action": "Add VALUES to the INSERT statement: INSERT INTO table_name (columns) VALUES (values);",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00928": {
+    "message": "missing SELECT keyword",
+    "cause": "The SELECT keyword is missing where it is expected, often in a subquery or CREATE AS SELECT.",
+    "action": "Add the SELECT keyword in the appropriate location.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00933": {
+    "message": "SQL command not properly ended",
+    "cause": "The SQL statement is not properly ended or has an extra clause appended.",
+    "action": "Remove the trailing clause (e.g. ORDER BY is not allowed with DELETE or UPDATE in SQL).",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00934": {
+    "message": "group function is not allowed here",
+    "cause": "A group function (SUM, AVG, COUNT, etc.) was used in a WHERE clause or other context where it is not allowed.",
+    "action": "Move the group function to a HAVING clause or use it in the SELECT list instead.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00936": {
+    "message": "missing expression",
+    "cause": "A required expression is missing from the SQL statement.",
+    "action": "Check the SQL for incomplete SELECT, WHERE, or ORDER BY clauses.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00937": {
+    "message": "not a single-group group function",
+    "cause": "A SELECT statement contains both non-aggregate columns and aggregate functions without a GROUP BY clause.",
+    "action": "Add a GROUP BY clause listing all non-aggregate columns, or remove non-aggregate columns from the SELECT.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00938": {
+    "message": "not enough arguments for function",
+    "cause": "A SQL function was called with too few arguments.",
+    "action": "Check the function documentation and provide all required arguments.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00939": {
+    "message": "too many arguments for function",
+    "cause": "A SQL function was called with too many arguments.",
+    "action": "Check the function documentation and remove the extra arguments.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00942": {
+    "message": "table or view does not exist",
+    "cause": "The table or view referenced in the SQL statement does not exist, or you do not have permission to access it.",
+    "action": "Verify the object name and schema. Grant SELECT privilege if the object exists but is not accessible. Use ALL_TABLES to check object existence.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-00947": {
+    "message": "not enough values",
+    "cause": "An INSERT statement has fewer values than the column list specifies.",
+    "action": "Ensure the VALUES list has the same number of entries as the column list.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00948": {
+    "message": "FORCE option no longer supported",
+    "cause": "The FORCE option of a CREATE VIEW statement is no longer supported for this type of view.",
+    "action": "Remove the FORCE keyword or create the underlying objects first.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-00955": {
+    "message": "name is already used by an existing object",
+    "cause": "An attempt was made to create a database object with a name that is already used by another object.",
+    "action": "Use a different name for the new object, or drop the existing object first.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-00959": {
+    "message": "tablespace '%s' does not exist",
+    "cause": "A statement referenced a tablespace that does not exist in the database.",
+    "action": "Check the tablespace name. Use SELECT TABLESPACE_NAME FROM DBA_TABLESPACES to list available tablespaces.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-00980": {
+    "message": "synonym translation is no longer valid",
+    "cause": "The synonym used refers to a database object that no longer exists.",
+    "action": "Drop and recreate the synonym pointing to the correct object, or recreate the referenced object.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-01000": {
+    "message": "maximum open cursors exceeded",
+    "cause": "A host language program attempted to open too many cursors. The maximum number is specified by the OPEN_CURSORS initialization parameter.",
+    "action": "Increase the OPEN_CURSORS initialization parameter or close cursors that are no longer needed in the application. Investigate cursor leaks.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-01002": {
+    "message": "fetch out of sequence",
+    "cause": "A fetch was performed on a cursor after the last row was returned or after the cursor was closed.",
+    "action": "Ensure FETCH operations occur before cursor exhaustion. Reopen cursor if needed.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01012": {
+    "message": "not logged on",
+    "cause": "A call to Oracle was made without first connecting to the database.",
+    "action": "Establish a database connection before executing SQL.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-01017": {
+    "message": "invalid username/password; logon denied",
+    "cause": "An invalid username or password was entered in an attempt to log on to Oracle.",
+    "action": "Enter a valid username and password combination. Verify the correct database is being targeted.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-01031": {
+    "message": "insufficient privileges",
+    "cause": "An attempt was made to perform a database operation without the necessary privileges.",
+    "action": "Ask your DBA to grant you the required privilege, such as CREATE SESSION, SELECT ANY TABLE, or the specific object privilege needed.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-01033": {
+    "message": "ORACLE initialization or shutdown in progress",
+    "cause": "An attempt was made to log on while Oracle is being started up or shut down.",
+    "action": "Wait for startup or shutdown to complete, then retry.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-01034": {
+    "message": "ORACLE not available",
+    "cause": "Oracle was not started up. Most common error when the Oracle background processes are not running.",
+    "action": "Start the Oracle instance using STARTUP from SQL*Plus connected as SYSDBA.",
+    "severity": "CRITICAL",
+    "category": "Session"
+  },
+  "ORA-01036": {
+    "message": "illegal variable name/number",
+    "cause": "An attempt was made to bind a variable that has an invalid name or number.",
+    "action": "Check the SQL statement and bind variable names. Ensure host variable names match the placeholders in the SQL.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01045": {
+    "message": "user %s lacks CREATE SESSION privilege; logon denied",
+    "cause": "The user does not have CREATE SESSION privilege.",
+    "action": "Grant CREATE SESSION to the user: GRANT CREATE SESSION TO username;",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-01078": {
+    "message": "failure in processing system parameters",
+    "cause": "An error occurred while reading or processing the initialization parameter file.",
+    "action": "Check the PFILE or SPFILE for syntax errors. Check the alert log for the specific parameter causing the failure.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-01089": {
+    "message": "immediate shutdown in progress - no operations are permitted",
+    "cause": "An immediate shutdown is in progress.",
+    "action": "Wait until shutdown is complete, then restart the database.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-01113": {
+    "message": "file %s needs media recovery",
+    "cause": "An attempt was made to open a database file that needs media recovery.",
+    "action": "Perform media recovery on the file using RECOVER DATAFILE before opening.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-01114": {
+    "message": "IO error writing block to file %s (block # %s)",
+    "cause": "The device on which the file resides is probably offline.",
+    "action": "Restore access to the device. Check OS-level disk errors in the alert log and OS logs.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-01157": {
+    "message": "cannot identify/lock data file %s - see DBWR trace file",
+    "cause": "The background process DBWR was unable to find or lock a data file.",
+    "action": "Check the DBWR trace file for details. Ensure all data files are available and that the OS file permissions are correct.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-01186": {
+    "message": "file %s failed verification tests",
+    "cause": "A data file failed the verification test during startup.",
+    "action": "Restore the file from backup and recover.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-01187": {
+    "message": "cannot read from file %s because it failed verification tests",
+    "cause": "The file failed verification tests and cannot be read.",
+    "action": "Restore the data file from backup and perform recovery.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-01219": {
+    "message": "database not open: queries allowed on fixed tables/views only",
+    "cause": "The database is not open for read/write. It may be in MOUNT state.",
+    "action": "Open the database: ALTER DATABASE OPEN;",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-01400": {
+    "message": "cannot insert NULL into (%s)",
+    "cause": "An INSERT or UPDATE statement attempted to insert a NULL value into a column with a NOT NULL constraint.",
+    "action": "Provide a non-NULL value for the column, or modify the table definition to allow NULLs if appropriate.",
+    "severity": "HIGH",
+    "category": "Constraints"
+  },
+  "ORA-01401": {
+    "message": "inserted value too large for column",
+    "cause": "The value being inserted is too large for the column.",
+    "action": "Either shorten the value or increase the column size using ALTER TABLE.",
+    "severity": "MEDIUM",
+    "category": "Constraints"
+  },
+  "ORA-01403": {
+    "message": "no data found",
+    "cause": "In a SELECT INTO statement, no rows were returned. In a FETCH statement, all rows have been fetched.",
+    "action": "Ensure the query returns at least one row, or add exception handling for NO_DATA_FOUND in PL/SQL.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01406": {
+    "message": "fetched column value was truncated",
+    "cause": "The value fetched from a column was too large to fit into the host variable.",
+    "action": "Increase the size of the host variable to hold the maximum column value, or use SUBSTR to limit the fetched length.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01408": {
+    "message": "such column list already indexed",
+    "cause": "An attempt was made to create an index on a set of columns that is already indexed.",
+    "action": "Drop the duplicate index or use the existing index.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-01422": {
+    "message": "exact fetch returns more than requested number of rows",
+    "cause": "A SELECT INTO statement returned more than one row.",
+    "action": "Use an explicit cursor or add WHERE clause conditions to restrict the result to one row.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01426": {
+    "message": "numeric overflow",
+    "cause": "Evaluation of an expression gives a result that is out of the valid number range.",
+    "action": "Review the expression for values that may exceed the column or variable definition.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01427": {
+    "message": "single-row subquery returns more than one row",
+    "cause": "A subquery used in a single-value context (=, !=, >, etc.) returned multiple rows.",
+    "action": "Use IN or EXISTS for multi-row comparisons, or add a WHERE clause to the subquery to return at most one row.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-01450": {
+    "message": "maximum key length (%s) exceeded",
+    "cause": "The combined length of the columns specified in the CREATE INDEX statement exceeds the maximum.",
+    "action": "Reduce the number or size of the indexed columns, or use a function-based index on shorter representations.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01461": {
+    "message": "can bind a LONG value only for insert into a LONG column",
+    "cause": "An attempt was made to bind a LONG value but the target column is not LONG.",
+    "action": "Use a CLOB column instead of LONG, or bind a shorter value. Migrate LONG columns to CLOB where possible.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01476": {
+    "message": "divisor is equal to zero",
+    "cause": "An expression attempted to divide a number by zero.",
+    "action": "Add a CASE or NULLIF check: NULLIF(divisor, 0) before dividing, or add a WHERE clause to exclude zero values.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01480": {
+    "message": "trailing null missing from STR bind value",
+    "cause": "An OCI string bind value was not null-terminated.",
+    "action": "Ensure all string bind variables in OCI or Pro*C code are properly null-terminated.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01481": {
+    "message": "invalid number format model",
+    "cause": "An invalid format model was used in a TO_NUMBER or TO_CHAR function.",
+    "action": "Check the Oracle number format model documentation and correct the format string.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01502": {
+    "message": "index '%s.%s' or partition of such index is in unusable state",
+    "cause": "An attempt was made to access an index that has been marked unusable.",
+    "action": "Rebuild the index: ALTER INDEX owner.index_name REBUILD; or drop and recreate it.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-01536": {
+    "message": "space quota exceeded for tablespace '%s'",
+    "cause": "The space quota for the tablespace of the object being created or extended has been exceeded.",
+    "action": "Ask the DBA to increase the user's tablespace quota: ALTER USER user QUOTA UNLIMITED ON tablespace;",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01555": {
+    "message": "snapshot too old: rollback segment number %s with name \"%s\" too small",
+    "cause": "A query or fetch lasted longer than the undo retention period, or the undo tablespace was too small to retain undo data.",
+    "action": "Increase UNDO_RETENTION parameter. Increase undo tablespace size. Optimize long-running queries to complete faster. Consider using FLASHBACK features.",
+    "severity": "CRITICAL",
+    "category": "Concurrency"
+  },
+  "ORA-01562": {
+    "message": "failed to extend rollback segment number %s",
+    "cause": "The rollback or undo segment has reached its MAXEXTENTS limit or there is no space left in the tablespace.",
+    "action": "Increase MAXEXTENTS for the rollback segment, add space to the undo tablespace, or increase the undo tablespace autoextend setting.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01578": {
+    "message": "ORACLE data block corrupted (file # %s, block # %s)",
+    "cause": "The data block indicated is corrupted.",
+    "action": "Use RMAN block media recovery: RECOVER DATAFILE n BLOCK m; or restore from backup. Report to Oracle Support.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-01591": {
+    "message": "lock held by in-doubt distributed transaction %s",
+    "cause": "An object is being locked by a distributed transaction that is in-doubt (two-phase commit problem).",
+    "action": "Force the in-doubt transaction: COMMIT FORCE 'transaction_id'; or ROLLBACK FORCE 'transaction_id'; Use DBA_2PC_PENDING to identify them.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-01610": {
+    "message": "recovery using the BACKUP CONTROLFILE option must be done",
+    "cause": "Recovery using a backup control file requires the USING BACKUP CONTROLFILE clause.",
+    "action": "Use RECOVER DATABASE USING BACKUP CONTROLFILE.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01652": {
+    "message": "unable to extend temp segment by %s in tablespace %s",
+    "cause": "Failed to allocate enough space for a sort or hash operation in the TEMP tablespace.",
+    "action": "Add a temp file to the TEMP tablespace, increase the existing temp file size, or optimize the SQL to reduce sort requirements.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01653": {
+    "message": "unable to extend table %s.%s by %s in tablespace %s",
+    "cause": "The table cannot extend because there is no more space in the tablespace.",
+    "action": "Add a data file to the tablespace or enable autoextend. Alternatively, purge unnecessary data from the table.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01654": {
+    "message": "unable to extend index %s.%s by %s in tablespace %s",
+    "cause": "The index cannot extend because there is no more space in the tablespace.",
+    "action": "Add a data file to the tablespace or enable autoextend on existing data files.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01658": {
+    "message": "unable to create INITIAL extent for segment in tablespace %s",
+    "cause": "There is not enough contiguous free space in the tablespace to create the initial extent for the new segment.",
+    "action": "Add more space to the tablespace or coalesce free space.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-01700": {
+    "message": "duplicate username in list",
+    "cause": "A user is specified more than once in a GRANT or REVOKE statement.",
+    "action": "Remove duplicate usernames from the GRANT/REVOKE statement.",
+    "severity": "LOW",
+    "category": "Privileges"
+  },
+  "ORA-01722": {
+    "message": "invalid number",
+    "cause": "The specified number is invalid. This occurs when trying to convert a non-numeric string to a number.",
+    "action": "Check the data for non-numeric characters. Use REGEXP_LIKE to validate before conversion, or use CASE/WHEN to handle bad data.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01747": {
+    "message": "invalid user.table.column, table.column, or column specification",
+    "cause": "An invalid column specification was provided.",
+    "action": "Check the column specification syntax.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01756": {
+    "message": "quoted string not properly terminated",
+    "cause": "A quoted string was not terminated with a closing quote, or the closing quote was not a valid string terminator.",
+    "action": "Check the SQL statement for mismatched or missing quotes.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01779": {
+    "message": "cannot modify a column which maps to a non key-preserved table",
+    "cause": "An attempt was made to INSERT or UPDATE columns of a join view that map to a non-key-preserved table.",
+    "action": "Use an INSTEAD OF trigger or update the base tables directly.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-01799": {
+    "message": "a column may not be outer-joined to a subquery",
+    "cause": "An outer join was attempted between a column and a subquery.",
+    "action": "Rewrite the query using an inline view or a LEFT OUTER JOIN with a proper subquery in the FROM clause.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-02002": {
+    "message": "error while writing to audit trail",
+    "cause": "An error occurred while writing to the audit trail.",
+    "action": "Check the audit trail destination for space and permissions.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-02049": {
+    "message": "timeout: distributed transaction waiting for lock",
+    "cause": "A timeout occurred in a distributed transaction waiting for a lock.",
+    "action": "Increase DISTRIBUTED_LOCK_TIMEOUT or investigate and remove the blocking distributed lock.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-02055": {
+    "message": "distributed update operation failed; rollback required",
+    "cause": "A distributed update failed and requires rollback.",
+    "action": "Issue a ROLLBACK statement.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-02063": {
+    "message": "preceding %s line(s) from %s",
+    "cause": "This message identifies the remote database that generated the preceding error.",
+    "action": "Look at the preceding error from the remote database to understand the issue.",
+    "severity": "MEDIUM",
+    "category": "Network"
+  },
+  "ORA-02291": {
+    "message": "integrity constraint (%s.%s) violated - parent key not found",
+    "cause": "An attempt was made to insert or update a record with a foreign key value that does not exist in the parent table.",
+    "action": "Insert the parent record first, or check for typos in the foreign key value.",
+    "severity": "HIGH",
+    "category": "Constraints"
+  },
+  "ORA-02292": {
+    "message": "integrity constraint (%s.%s) violated - child record found",
+    "cause": "An attempt was made to delete a parent record when child records exist in a foreign key relationship.",
+    "action": "Delete or update the child records first, or use ON DELETE CASCADE on the foreign key constraint.",
+    "severity": "HIGH",
+    "category": "Constraints"
+  },
+  "ORA-02396": {
+    "message": "exceeded maximum idle time, please connect again",
+    "cause": "This session has been idle for too long and was disconnected per the profile's IDLE_TIME limit.",
+    "action": "Reconnect to the database. Ask the DBA to increase the IDLE_TIME profile parameter if needed.",
+    "severity": "LOW",
+    "category": "Session"
+  },
+  "ORA-02429": {
+    "message": "cannot drop index used for enforcement of unique/primary key",
+    "cause": "An attempt was made to drop an index that is being used to enforce a unique or primary key constraint.",
+    "action": "Disable or drop the constraint first, then drop the index.",
+    "severity": "MEDIUM",
+    "category": "Constraints"
+  },
+  "ORA-02437": {
+    "message": "cannot validate (%s.%s) - primary key violated",
+    "cause": "Enabling a primary key constraint failed because duplicate values exist in the column(s).",
+    "action": "Remove duplicate values from the column before enabling the constraint.",
+    "severity": "HIGH",
+    "category": "Constraints"
+  },
+  "ORA-02438": {
+    "message": "column check constraint cannot reference other columns",
+    "cause": "An attempt was made to define a column-level check constraint that references another column.",
+    "action": "Define the check constraint at the table level instead of the column level.",
+    "severity": "MEDIUM",
+    "category": "Constraints"
+  },
+  "ORA-02443": {
+    "message": "cannot drop constraint - nonexistent constraint",
+    "cause": "An attempt was made to drop a constraint that does not exist.",
+    "action": "Verify the constraint name using SELECT CONSTRAINT_NAME FROM USER_CONSTRAINTS;",
+    "severity": "LOW",
+    "category": "Constraints"
+  },
+  "ORA-03113": {
+    "message": "end-of-file on communication channel",
+    "cause": "The connection between the client and the database server was unexpectedly closed.",
+    "action": "Check the alert log and trace files. Verify the database is running. Check network stability between client and server.",
+    "severity": "CRITICAL",
+    "category": "Network"
+  },
+  "ORA-03114": {
+    "message": "not connected to ORACLE",
+    "cause": "The program is no longer connected to Oracle, or was never connected.",
+    "action": "Re-establish the database connection. Check the alert log for why the connection was dropped.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-03135": {
+    "message": "connection lost contact",
+    "cause": "The connection between the client and server was lost, usually due to a network issue or server crash.",
+    "action": "Check network connectivity. Review the server alert log. Verify the database is up.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-04020": {
+    "message": "deadlock detected while trying to lock object %s",
+    "cause": "A deadlock was detected when attempting to lock a library cache object.",
+    "action": "Retry the operation. If the error recurs, investigate whether concurrent DDL is causing contention.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-04021": {
+    "message": "timeout occurred while waiting to lock object %s",
+    "cause": "A timeout occurred while waiting to lock a library cache object.",
+    "action": "Retry. If persistent, investigate library cache contention using V$LATCH and V$SESSION_WAIT.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-04028": {
+    "message": "cannot generate diana for object %s.%s",
+    "cause": "Oracle was unable to generate the parse tree (DIANA) for the specified PL/SQL object.",
+    "action": "Recompile the object: ALTER PROCEDURE/PACKAGE/FUNCTION name COMPILE; If it fails, check for missing dependencies.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-04031": {
+    "message": "unable to allocate %s bytes of shared memory (%s,%s,%s,%s)",
+    "cause": "More shared memory is needed than was allocated in the shared pool or large pool. Fragmentation may also be a cause.",
+    "action": "Use DBMS_SHARED_POOL.KEEP to pin large packages. Increase SHARED_POOL_SIZE. Set SHARED_POOL_RESERVED_SIZE. Flush the shared pool: ALTER SYSTEM FLUSH SHARED_POOL;",
+    "severity": "CRITICAL",
+    "category": "Memory"
+  },
+  "ORA-04036": {
+    "message": "PGA memory used by the instance exceeds PGA_AGGREGATE_LIMIT",
+    "cause": "The total PGA memory used by all sessions exceeds the PGA_AGGREGATE_LIMIT parameter.",
+    "action": "Increase PGA_AGGREGATE_LIMIT or PGA_AGGREGATE_TARGET. Identify sessions with high PGA usage via V$PROCESS and V$SESSTAT.",
+    "severity": "CRITICAL",
+    "category": "Memory"
+  },
+  "ORA-04043": {
+    "message": "object %s does not exist",
+    "cause": "The named object does not exist in the database, or you do not have privileges to view it.",
+    "action": "Check the object name spelling and schema. Use ALL_OBJECTS or DBA_OBJECTS to confirm existence.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-04061": {
+    "message": "existing state of %s has been invalidated",
+    "cause": "The existing state (package global variables) of a package instance has been discarded because the package has been invalidated and recompiled.",
+    "action": "Re-initialize the package state. This is expected after DDL changes to the package. Handle PACKAGE_STATE_ERROR in application code.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-04063": {
+    "message": "%s has errors",
+    "cause": "An attempt was made to use a stored procedure, function, or package that has errors.",
+    "action": "Recompile the object and check for compilation errors: SELECT * FROM USER_ERRORS WHERE NAME = 'OBJECT_NAME';",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-04065": {
+    "message": "not executed, altered or dropped %s \"%s\"",
+    "cause": "A stored procedure or package was altered or dropped while it was being executed.",
+    "action": "Re-execute the calling program after the DDL operation is complete.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-04067": {
+    "message": "not executed, %s \"%s\" does not exist",
+    "cause": "The stored procedure, function, or package referenced does not exist.",
+    "action": "Verify the object name and schema. Check ALL_OBJECTS for existence and validity.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-04091": {
+    "message": "table %s.%s is mutating, trigger/function may not see it",
+    "cause": "A trigger (or a function called by a trigger) attempted to read or modify a table that is currently being modified by the triggering statement.",
+    "action": "Use compound triggers (Oracle 11g+) or autonomous transactions to work around the mutating table restriction.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-05555": {
+    "message": "time stamp mismatch - check ORACLE_HOME settings",
+    "cause": "Timestamp mismatch between components.",
+    "action": "Verify ORACLE_HOME is consistent across all Oracle components.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-06502": {
+    "message": "PL/SQL: numeric or value error%s",
+    "cause": "An arithmetic, numeric, string, conversion, or constraint error occurred in PL/SQL.",
+    "action": "Check variable sizes and data types. Ensure assignments don't exceed variable constraints. Add explicit conversion and validation.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-06504": {
+    "message": "PL/SQL: Return types of Result Set variables or query do not match",
+    "cause": "The return type of the cursor variable does not match the return type of the query.",
+    "action": "Ensure the cursor variable type matches the SELECT statement columns.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-06508": {
+    "message": "PL/SQL: could not find program unit being called: \"%s\"",
+    "cause": "The specified program unit does not exist or has not been compiled successfully.",
+    "action": "Verify the package/procedure/function exists and is valid: SELECT STATUS FROM ALL_OBJECTS WHERE OBJECT_NAME = 'NAME';",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-06512": {
+    "message": "at %s, line %s",
+    "cause": "Backtrace message as the exception propagated through the call stack.",
+    "action": "This line identifies the location of the error in the PL/SQL call stack. Look at the preceding error for the root cause.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-06550": {
+    "message": "line %s, column %s:\n%s",
+    "cause": "Usually a PL/SQL compilation error.",
+    "action": "Fix the PL/SQL syntax error at the indicated line and column.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-07445": {
+    "message": "exception encountered: core dump [%s] [%s] [%s] [%s] [%s] [%s]",
+    "cause": "An operating system exception occurred which should result in the creation of a core file. This is an Oracle internal error.",
+    "action": "Contact Oracle Support and provide the trace file and core dump.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-08002": {
+    "message": "sequence %s.CURRVAL is not yet defined in this session",
+    "cause": "CURRVAL was referenced before NEXTVAL was called in this session.",
+    "action": "Call sequence.NEXTVAL before using sequence.CURRVAL in the same session.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-08003": {
+    "message": "sequence %s.NEXTVAL exceeds MAXVALUE and cannot be instantiated",
+    "cause": "The sequence has reached its MAXVALUE and NOCYCLE is set.",
+    "action": "ALTER SEQUENCE name CYCLE or ALTER SEQUENCE name MAXVALUE new_max or recreate the sequence.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-08004": {
+    "message": "sequence %s.NEXTVAL %s and cannot be instantiated",
+    "cause": "NEXTVAL would violate the sequence's MINVALUE or MAXVALUE.",
+    "action": "Alter the sequence parameters to accommodate the required range.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-09817": {
+    "message": "Write to audit file failed",
+    "cause": "Oracle was unable to write to the audit trail file.",
+    "action": "Check disk space on the audit file destination. Verify file system permissions for the Oracle OS user.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-10173": {
+    "message": "Dynamic Sampling time-out error",
+    "cause": "Dynamic sampling exceeded the time limit and was aborted.",
+    "action": "Gather statistics on the affected objects. Reduce OPTIMIZER_DYNAMIC_SAMPLING or add a NO_DYNAMIC_SAMPLING hint.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-10458": {
+    "message": "standby database requires recovery",
+    "cause": "The standby database is not in sync with the primary.",
+    "action": "Apply archived logs or redo to the standby. Check Data Guard status.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-10632": {
+    "message": "invalid rowid",
+    "cause": "The specified ROWID is invalid.",
+    "action": "Verify the ROWID value. It may have been corrupted or the row may have been moved.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-11001": {
+    "message": "hash collision",
+    "cause": "A hash collision occurred.",
+    "action": "Contact Oracle Support with the trace file.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-12012": {
+    "message": "error on auto execute of job %s",
+    "cause": "The Oracle Scheduler job failed during auto-execute.",
+    "action": "Check DBA_SCHEDULER_JOB_RUN_DETAILS for the specific error. Review the job's stored procedure for errors.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-12154": {
+    "message": "TNS:could not resolve the connect identifier specified",
+    "cause": "A connection was requested using a connect identifier that could not be resolved. TNS alias is not defined in tnsnames.ora or LDAP.",
+    "action": "Check tnsnames.ora for the correct alias. Verify ORACLE_HOME/network/admin path. Test with tnsping. Check TNS_ADMIN environment variable.",
+    "severity": "CRITICAL",
+    "category": "Network"
+  },
+  "ORA-12170": {
+    "message": "TNS:Connect timeout occurred",
+    "cause": "The client failed to establish a connection within the timeout period.",
+    "action": "Check network connectivity to the host. Verify the listener is running. Check for firewalls blocking the port. Increase SQLNET.INBOUND_CONNECT_TIMEOUT.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12203": {
+    "message": "TNS:unable to connect to destination",
+    "cause": "TNS was unable to connect to the specified destination.",
+    "action": "Verify the host, port, and service name. Check that the listener is running: lsnrctl status.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12224": {
+    "message": "TNS:no listener",
+    "cause": "The connection request could not be completed because the listener is not running.",
+    "action": "Start the Oracle listener: lsnrctl start. Verify the listener.ora configuration.",
+    "severity": "CRITICAL",
+    "category": "Network"
+  },
+  "ORA-12505": {
+    "message": "TNS:listener does not currently know of SID given in connect descriptor",
+    "cause": "The listener received a request to establish a connection to a database or other service. The connect descriptor received by the listener specified a SID that the listener does not know about.",
+    "action": "Check the SID in the connection string. Ensure the database is registered with the listener. Use SERVICE_NAME instead of SID in newer Oracle versions.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12514": {
+    "message": "TNS:listener does not currently know of service requested in connect descriptor",
+    "cause": "The listener received a connection request but does not know the service name in the connect descriptor.",
+    "action": "Verify the SERVICE_NAME in the connection string matches the database service. Check lsnrctl services output. Restart the listener after DB startup.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12516": {
+    "message": "TNS:listener could not find available handler with matching protocol stack",
+    "cause": "The listener could not find an available handler with matching protocol stack for the requesting client.",
+    "action": "Increase PROCESSES and SESSIONS initialization parameters. Check for connection pool exhaustion.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12519": {
+    "message": "TNS:no appropriate service handler found",
+    "cause": "The listener cannot find an available and appropriate handler for the request.",
+    "action": "Increase the PROCESSES parameter. Check connection pool usage. Verify the dispatchers are running if using shared server mode.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12528": {
+    "message": "TNS:listener: all appropriate instances are blocking new connections",
+    "cause": "All database instances that handle the service are blocking new connections, usually because the database is starting up.",
+    "action": "Wait for the database to finish startup. If the database is in restricted mode, alter it: ALTER SYSTEM DISABLE RESTRICTED SESSION;",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12541": {
+    "message": "TNS:no listener",
+    "cause": "Attempted to connect to a host on which the Oracle listener is not running.",
+    "action": "Start the listener: lsnrctl start. Verify the host and port in the connection descriptor.",
+    "severity": "CRITICAL",
+    "category": "Network"
+  },
+  "ORA-12560": {
+    "message": "TNS:protocol adapter error",
+    "cause": "A generic TNS protocol adapter error. Often means the Oracle service is not running on the local machine (Windows).",
+    "action": "On Windows: start the OracleService via services.msc. On Linux: start the instance with sqlplus / as sysdba and STARTUP. Check ORACLE_SID is set correctly.",
+    "severity": "CRITICAL",
+    "category": "Network"
+  },
+  "ORA-12571": {
+    "message": "TNS:packet writer failure",
+    "cause": "An error occurred when sending data to the Oracle server.",
+    "action": "Check network stability. Review sqlnet.log for details. Investigate client-server network path.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12592": {
+    "message": "TNS:bad packet",
+    "cause": "A malformed packet was received on the network.",
+    "action": "Check network stability. Review Oracle Net log files.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12637": {
+    "message": "Packet receive failed",
+    "cause": "Oracle Net received a corrupted or unexpected packet.",
+    "action": "Check network integrity. Review sqlnet.log on both client and server.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-12638": {
+    "message": "Credential retrieval failed",
+    "cause": "Oracle Net was unable to retrieve the user's credentials from the network authentication service.",
+    "action": "Check the SQLNET.AUTHENTICATION_SERVICES setting in sqlnet.ora. If OS authentication is not required, set it to NONE.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-12899": {
+    "message": "value too large for column %s (actual: %s, maximum: %s)",
+    "cause": "An INSERT or UPDATE supplied a value that is too large for the column definition.",
+    "action": "Truncate the value to fit the column, or use ALTER TABLE to widen the column.",
+    "severity": "MEDIUM",
+    "category": "Constraints"
+  },
+  "ORA-13516": {
+    "message": "AWR Operation failed: %s",
+    "cause": "The AWR (Automatic Workload Repository) operation failed.",
+    "action": "Check the AWR tablespace (SYSAUX) for space. Run DBMS_WORKLOAD_REPOSITORY.AWR_REPORT_HTML to diagnose. Check for SYSAUX corruption.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-14400": {
+    "message": "inserted partition key does not map to any partition",
+    "cause": "An INSERT was attempted into a partitioned table but the partition key value does not fall within any defined partition range.",
+    "action": "Add a partition that covers the new key value, or use INTERVAL partitioning to auto-create partitions.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-14402": {
+    "message": "updating partition key column would cause a partition change",
+    "cause": "An UPDATE changed the value of a partition key column so the row would need to move to a different partition, but ROW MOVEMENT is not enabled.",
+    "action": "Enable row movement: ALTER TABLE table_name ENABLE ROW MOVEMENT; then retry.",
+    "severity": "MEDIUM",
+    "category": "Storage"
+  },
+  "ORA-14551": {
+    "message": "cannot perform a DML operation inside a query",
+    "cause": "A DML operation (INSERT, UPDATE, DELETE) was attempted inside a query context where it is not permitted.",
+    "action": "Use an autonomous transaction pragma (PRAGMA AUTONOMOUS_TRANSACTION) if the DML must occur in a function called from SQL.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-14752": {
+    "message": "Interval expression is not a constant of the correct type",
+    "cause": "The INTERVAL expression used in partition definition is not a valid constant.",
+    "action": "Use a valid interval constant such as NUMTOYMINTERVAL(1,'MONTH') or NUMTODSINTERVAL(1,'DAY').",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-17008": {
+    "message": "closed connection",
+    "cause": "An attempt was made to use a closed database connection.",
+    "action": "Re-establish the connection before executing SQL. Check connection pool health.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-17009": {
+    "message": "closed statement",
+    "cause": "An attempt was made to use a statement that has already been closed.",
+    "action": "Re-prepare the statement before executing. Check for premature statement.close() calls in JDBC/OCI code.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-17011": {
+    "message": "exhausted resultset",
+    "cause": "An attempt was made to fetch beyond the end of a result set.",
+    "action": "Check the loop condition when iterating over result sets. Use ResultSet.next() return value to control iteration.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-17068": {
+    "message": "Invalid argument(s) in call",
+    "cause": "An invalid argument was passed to an Oracle JDBC or OCI call.",
+    "action": "Review the API call and ensure all parameters are valid and within expected ranges.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-17410": {
+    "message": "No more data to read from socket",
+    "cause": "The JDBC driver could not read more data from the socket.",
+    "action": "Check network stability. Investigate database-side issues that may have caused the connection to drop.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-17447": {
+    "message": "OALL8 is in an inconsistent state",
+    "cause": "The OCI layer (OALL8) is in an inconsistent state, usually caused by a previous error not being handled properly.",
+    "action": "Close the connection and open a fresh one. This usually follows another error that was not handled correctly.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-19502": {
+    "message": "write error on file \"%s\", block number %s",
+    "cause": "A write error occurred on the specified file during backup or recovery.",
+    "action": "Check disk space on the backup destination. Verify file system permissions. Check OS I/O error logs.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-19505": {
+    "message": "failed to identify file \"%s\"",
+    "cause": "RMAN or Oracle could not identify the specified backup file.",
+    "action": "Verify the file path and that the file exists. Re-catalog the backup if needed: RMAN> CATALOG DATAFILECOPY 'path';",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-19625": {
+    "message": "error identifying file %s",
+    "cause": "RMAN could not identify the specified backup piece.",
+    "action": "Verify the backup file path. Use RMAN LIST BACKUP to check available backups. Recatalog if missing.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-20000": {
+    "message": "ORU-10027: buffer overflow, limit of %s bytes",
+    "cause": "The DBMS_OUTPUT buffer is full.",
+    "action": "Increase the buffer size: DBMS_OUTPUT.ENABLE(1000000); or reduce the amount of output generated.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-22922": {
+    "message": "nonexistent LOB value",
+    "cause": "An attempt was made to access a LOB value that does not exist.",
+    "action": "Verify the LOB locator is valid and the LOB column has been populated.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-24000": {
+    "message": "not logged on",
+    "cause": "The session is not connected to an Oracle database.",
+    "action": "Establish a database connection before executing SQL.",
+    "severity": "HIGH",
+    "category": "Session"
+  },
+  "ORA-24237": {
+    "message": "object id argument to DBMS_UTILITY.INVALIDATE is not that of an existing object",
+    "cause": "The object ID passed to DBMS_UTILITY.INVALIDATE does not correspond to an existing object.",
+    "action": "Verify the object ID using SELECT OBJECT_ID FROM DBA_OBJECTS WHERE OBJECT_NAME = 'NAME';",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-24816": {
+    "message": "Expanded non LONG bind data supplied after actual LONG or LOB column",
+    "cause": "An attempt was made to supply non-LONG bind data in a position after a LONG or LOB column.",
+    "action": "Reorder the bind variables or columns so LONG and LOB columns come last.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-25153": {
+    "message": "Temporary Tablespace is Empty",
+    "cause": "The temporary tablespace has no temp files.",
+    "action": "Add a tempfile: ALTER TABLESPACE TEMP ADD TEMPFILE '/path/temp01.dbf' SIZE 1G AUTOEXTEND ON;",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-25400": {
+    "message": "must replay fetch",
+    "cause": "The operation requires replaying a fetch due to a failover scenario.",
+    "action": "Re-execute the query from the beginning of the result set.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-25401": {
+    "message": "can not continue fetches",
+    "cause": "Fetching could not continue, usually because the cursor has been invalidated.",
+    "action": "Close and reopen the cursor. Re-execute the query.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-25402": {
+    "message": "transaction must roll back",
+    "cause": "The transaction must be rolled back due to a failed operation.",
+    "action": "Issue a ROLLBACK statement and retry the transaction.",
+    "severity": "HIGH",
+    "category": "Concurrency"
+  },
+  "ORA-25403": {
+    "message": "could not reconnect",
+    "cause": "The application requested a reconnect but it failed.",
+    "action": "Establish a fresh connection to the database.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-25404": {
+    "message": "lost instance",
+    "cause": "The instance was lost, usually due to a RAC node failure.",
+    "action": "Check RAC cluster health. Reconnect to a surviving instance.",
+    "severity": "CRITICAL",
+    "category": "Network"
+  },
+  "ORA-28000": {
+    "message": "the account is locked",
+    "cause": "The user account has been locked after too many failed login attempts.",
+    "action": "Unlock the account: ALTER USER username ACCOUNT UNLOCK; Review the FAILED_LOGIN_ATTEMPTS profile parameter.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-28001": {
+    "message": "the password has expired",
+    "cause": "The user's password has expired per the password lifetime setting in the profile.",
+    "action": "Change the password: ALTER USER username IDENTIFIED BY new_password; or ALTER PROFILE profile LIMIT PASSWORD_LIFE_TIME UNLIMITED;",
+    "severity": "MEDIUM",
+    "category": "Privileges"
+  },
+  "ORA-28002": {
+    "message": "the password will expire within %s days",
+    "cause": "The user's password is about to expire.",
+    "action": "Change the password before it expires to avoid being locked out.",
+    "severity": "LOW",
+    "category": "Privileges"
+  },
+  "ORA-28003": {
+    "message": "password verification for the specified password failed",
+    "cause": "The new password did not meet the requirements of the password verify function.",
+    "action": "Choose a password that meets the complexity requirements defined in the password verify function.",
+    "severity": "LOW",
+    "category": "Privileges"
+  },
+  "ORA-28009": {
+    "message": "connection as SYS should be as SYSDBA or SYSOPER",
+    "cause": "An attempt was made to connect as SYS without specifying SYSDBA or SYSOPER.",
+    "action": "Connect using: sqlplus sys/password@db AS SYSDBA",
+    "severity": "MEDIUM",
+    "category": "Privileges"
+  },
+  "ORA-28040": {
+    "message": "No matching authentication protocol",
+    "cause": "The client and server cannot agree on an authentication protocol. Usually a version mismatch.",
+    "action": "Set SQLNET.ALLOWED_LOGON_VERSION_SERVER and CLIENT in sqlnet.ora to allow older clients. Update client drivers to a compatible version.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-28113": {
+    "message": "policy predicate has error",
+    "cause": "A Virtual Private Database (VPD) policy function returned an invalid predicate.",
+    "action": "Review the VPD policy function for errors. Check USER_ERRORS for compilation issues in the policy function.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-28115": {
+    "message": "policy with check option violation",
+    "cause": "An INSERT or UPDATE violated a VPD policy with check option enabled.",
+    "action": "Review the VPD policy to understand why the row was rejected. Adjust the data to comply with the policy predicate.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-28500": {
+    "message": "connection from ORACLE to a non-Oracle system returned this message:\n[%s]",
+    "cause": "A heterogeneous services (database link to non-Oracle DB) operation returned an error from the remote system.",
+    "action": "Check the HS agent log. Verify connectivity to the non-Oracle data source.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-28547": {
+    "message": "connection to server failed, probable Oracle Net admin error",
+    "cause": "Oracle Net was unable to connect to the server, usually due to misconfiguration.",
+    "action": "Review sqlnet.ora and tnsnames.ora. Run tnsping to test connectivity. Check the listener log.",
+    "severity": "HIGH",
+    "category": "Network"
+  },
+  "ORA-29275": {
+    "message": "partial multibyte character",
+    "cause": "A partial multi-byte character was found during character set conversion.",
+    "action": "Ensure data is stored in a complete multi-byte character encoding. Check for data corruption or truncation.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-29283": {
+    "message": "invalid file operation",
+    "cause": "An invalid file operation was attempted using UTL_FILE.",
+    "action": "Verify the directory object path and permissions. Check that the file path uses a valid Oracle directory object.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-29285": {
+    "message": "file write error",
+    "cause": "An error occurred during a UTL_FILE write operation.",
+    "action": "Check disk space on the directory. Verify write permissions on the file and directory.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-29292": {
+    "message": "invalid file rename operation",
+    "cause": "UTL_FILE.FRENAME was called with invalid parameters.",
+    "action": "Verify both source and destination directory objects and file names are valid.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-30036": {
+    "message": "unable to extend segment by %s in undo tablespace '%s'",
+    "cause": "The undo tablespace has run out of space.",
+    "action": "Add a data file to the undo tablespace or enable autoextend. Consider reducing UNDO_RETENTION or committing transactions more frequently.",
+    "severity": "CRITICAL",
+    "category": "Storage"
+  },
+  "ORA-30926": {
+    "message": "unable to get a stable set of rows in the source tables",
+    "cause": "A MERGE statement was unable to get a stable set of source rows, usually because the source query returns duplicate rows for a single target row.",
+    "action": "Ensure the source query returns at most one row per target row. Use aggregation or DISTINCT in the source query.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-31011": {
+    "message": "XML parsing failed",
+    "cause": "Oracle could not parse the provided XML data.",
+    "action": "Validate the XML against its schema. Check for malformed XML, encoding issues, or missing namespace declarations.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-31626": {
+    "message": "job does not exist",
+    "cause": "A Data Pump operation referenced a job that does not exist.",
+    "action": "List active Data Pump jobs: SELECT JOB_NAME, STATE FROM DBA_DATAPUMP_JOBS; Verify the job name.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-32004": {
+    "message": "obsolete or deprecated parameter(s) specified for RDBMS instance",
+    "cause": "An obsolete initialization parameter was specified.",
+    "action": "Remove the obsolete parameter from the PFILE/SPFILE. Check Oracle documentation for the current replacement parameter.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-32017": {
+    "message": "failure in updating SPFILE",
+    "cause": "An error occurred when attempting to update the server parameter file.",
+    "action": "Check that the SPFILE exists and is accessible. Verify permissions on the SPFILE location.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-32019": {
+    "message": "cannot update parameter to value specified for server parameter file update",
+    "cause": "The parameter value is invalid for SPFILE update.",
+    "action": "Check the valid range for the parameter. Use ALTER SYSTEM ... SCOPE=MEMORY first to test, then SCOPE=SPFILE.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-38301": {
+    "message": "can not perform DDL/DML over objects in Recycle Bin",
+    "cause": "An attempt was made to perform DDL or DML on an object that is in the Recycle Bin.",
+    "action": "Either restore the object with FLASHBACK TABLE name TO BEFORE DROP, or purge it: PURGE TABLE name;",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-38760": {
+    "message": "This database instance failed to turn on flashback database logging",
+    "cause": "Flashback logging could not be enabled, usually due to insufficient space in the Fast Recovery Area.",
+    "action": "Increase DB_RECOVERY_FILE_DEST_SIZE or add more space to the FRA location.",
+    "severity": "HIGH",
+    "category": "Storage"
+  },
+  "ORA-39000": {
+    "message": "bad dump file specification",
+    "cause": "A Data Pump operation was given an invalid dump file specification.",
+    "action": "Verify the DIRECTORY object and DUMPFILE parameter in the Data Pump job.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-39001": {
+    "message": "invalid argument value",
+    "cause": "A Data Pump API call was given an invalid argument.",
+    "action": "Review the DBMS_DATAPUMP API call parameters for correctness.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-39002": {
+    "message": "invalid operation",
+    "cause": "An invalid operation was requested in a Data Pump job.",
+    "action": "Review the Data Pump documentation for valid operations in the current job state.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-39006": {
+    "message": "internal error",
+    "cause": "An internal Data Pump error occurred.",
+    "action": "Check the Data Pump log file. Contact Oracle Support with the log and trace files.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-39014": {
+    "message": "One or more workers have prematurely exited.",
+    "cause": "One or more Data Pump worker processes terminated unexpectedly.",
+    "action": "Check the Data Pump log file and the alert log for errors. Re-attach to the job and attempt to restart it.",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-39083": {
+    "message": "Object type %s failed to create with error:\n%s",
+    "cause": "A Data Pump import failed to create the specified object type.",
+    "action": "Review the error detail. The object may already exist, have missing dependencies, or require additional privileges.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-39126": {
+    "message": "Worker unexpected fatal error in %s [%s] [%s] [%s] [%s]",
+    "cause": "A Data Pump worker process encountered a fatal unexpected error.",
+    "action": "Check the Data Pump log and alert log. Contact Oracle Support with trace files.",
+    "severity": "CRITICAL",
+    "category": "Other"
+  },
+  "ORA-40478": {
+    "message": "output value too large (maximum: %s)",
+    "cause": "The output of an AI Vector Search or text mining function exceeded the maximum size.",
+    "action": "Reduce the input or use a different output format.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-44787": {
+    "message": "Service cannot be suspended",
+    "cause": "Attempted to suspend an Oracle service that cannot be suspended.",
+    "action": "Check service configuration in DBA_SERVICES.",
+    "severity": "LOW",
+    "category": "Other"
+  },
+  "ORA-47400": {
+    "message": "Command Rule violation for %s on %s",
+    "cause": "A Database Vault command rule prevented the operation.",
+    "action": "Review Database Vault command rules with your security administrator.",
+    "severity": "HIGH",
+    "category": "Privileges"
+  },
+  "ORA-54013": {
+    "message": "INSERT operation disallowed on virtual columns",
+    "cause": "An INSERT statement attempted to specify a value for a virtual column.",
+    "action": "Remove virtual columns from the INSERT column list. Virtual columns are computed automatically.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-55302": {
+    "message": "defaulting to undo tablespace for flashback data archive",
+    "cause": "No specific Flashback Data Archive tablespace was specified.",
+    "action": "Specify a dedicated tablespace for the Flashback Data Archive to avoid UNDO tablespace pressure.",
+    "severity": "LOW",
+    "category": "Storage"
+  },
+  "ORA-65040": {
+    "message": "operation not allowed from within a pluggable database",
+    "cause": "An operation that is only allowed at the CDB root level was attempted from a PDB.",
+    "action": "Connect to the CDB root (ALTER SESSION SET CONTAINER = CDB$ROOT;) to perform this operation.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  },
+  "ORA-65048": {
+    "message": "error encountered when switching into pluggable database %s",
+    "cause": "An error occurred when switching to the specified PDB.",
+    "action": "Check that the PDB is open: SELECT NAME, OPEN_MODE FROM V$PDBS; Open it if closed: ALTER PLUGGABLE DATABASE pdb_name OPEN;",
+    "severity": "HIGH",
+    "category": "Other"
+  },
+  "ORA-65090": {
+    "message": "operation not allowed in a non-CDB database",
+    "cause": "A CDB-specific operation was attempted on a non-CDB (traditional) database.",
+    "action": "This feature requires a multitenant/CDB architecture. Use the standard equivalent for non-CDB databases.",
+    "severity": "MEDIUM",
+    "category": "Other"
+  }
+}
