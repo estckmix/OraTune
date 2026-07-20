@@ -1,6 +1,7 @@
 # OraTune
 
 **Oracle SQL/PLSQL Performance Regression Analysis Tool**
+<img width="2552" height="638" alt="Logo" src="https://github.com/user-attachments/assets/cb9e48b8-879a-4a9f-a12f-dcf73b948709" />
 
 Authored by David Radoicic
 
